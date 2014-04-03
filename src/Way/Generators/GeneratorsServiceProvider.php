@@ -2,6 +2,7 @@
 
 use Illuminate\Support\ServiceProvider;
 use Way\Generators\Commands\ControllerGeneratorCommand;
+use Way\Generators\Commands\ControllerTestGeneratorCommand;
 use Way\Generators\Commands\ModelGeneratorCommand;
 use Way\Generators\Commands\ResourceGeneratorCommand;
 use Way\Generators\Commands\SeederGeneratorCommand;
@@ -39,6 +40,7 @@ class GeneratorsServiceProvider extends ServiceProvider {
             'Model',
             'View',
             'Controller',
+            'ControllerTest',
             'Migration',
             'Seeder',
             'Pivot',
@@ -93,6 +95,21 @@ class GeneratorsServiceProvider extends ServiceProvider {
         });
 
         $this->commands('generate.controller');
+    }
+
+    /**
+     * Register the controller generator
+     */
+    protected function registerControllerTest()
+    {
+        $this->app['generate.controller-test'] = $this->app->share(function($app)
+        {
+            $generator = $this->app->make('Way\Generators\Generator');
+
+            return new ControllerTestGeneratorCommand($generator);
+        });
+
+        $this->commands('generate.controller-test');
     }
 
     /**

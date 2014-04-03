@@ -1,0 +1,61 @@
+<?php
+
+class $NAME$Test extends TestCase {
+
+    /** @test **/
+    public function it_should_get_index()
+    {
+        $this->call('GET', '/$COLLECTION$');
+
+        $this->assertResponseOk();
+    }
+
+    /** @test **/
+    public function it_should_get_new()
+    {
+        $this->call('GET', '/$COLLECTION$/create');
+
+        $this->assertResponseOk();
+    }
+
+    /** @test **/
+    public function it_should_create_$RESOURCE$()
+    {
+        $this->call('POST', '/$COLLECTION$');
+
+        $this->assertResponseOk();
+    }
+
+    /** @test **/
+    public function it_should_show_$RESOURCE$()
+    {
+        $this->call('GET', '/$COLLECTION$', array('$RESOURCE$' => 1));
+
+        $this->assertResponseOk();
+    }
+
+    /** @test **/
+    public function it_should_get_edit()
+    {
+        $this->call('GET', '/$COLLECTION$/1/edit');
+
+        $this->assertResponseOk();
+    }
+
+    /** @test **/
+    public function it_should_update_$RESOURCE$()
+    {
+        $this->call('PUT', '/$COLLECTION$/1');
+
+        $this->assertResponseOk();
+    }
+
+    /** @test **/
+    public function it_should_destroy_$RESOURCE$()
+    {
+        $this->call('DELETE', '/$COLLECTION$/1');
+
+        $this->assertResponseOk();
+    }
+
+}

@@ -88,6 +88,20 @@ class FeatureContext extends BehatContext
     }
 
     /**
+     * @When /^I generate a controller-test with "([^"]*)"$/
+     */
+    public function iGenerateAControllerTestWith($controllerName)
+    {
+        $this->tester = new CommandTester(App::make('Way\Generators\Commands\ControllerTestGeneratorCommand'));
+
+        $this->tester->execute([
+            'controllerName' => $controllerName,
+            '--path' => __DIR__.'/../../tmp',
+            '--templatePath' => __DIR__.'/../../../src/Way/Generators/templates/tests/controller.txt'
+        ]);
+    }
+
+    /**
      * @When /^I generate a view with "([^"]*)"$/
      */
     public function iGenerateAViewWith($viewName)

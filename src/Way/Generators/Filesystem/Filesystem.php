@@ -17,6 +17,8 @@ class Filesystem {
             throw new FileAlreadyExists;
         }
 
+        $this->createDirectory($file);
+
         return file_put_contents($file, $content);
     }
 
@@ -46,6 +48,19 @@ class Filesystem {
         }
 
         return file_get_contents($file);
+    }
+
+    /**
+     * @param $file
+     */
+    public function createDirectory($file)
+    {
+        $directory = dirname($file);
+
+        if (! file_exists($directory))
+        {
+            mkdir(dirname($file), 0755, true);
+        }
     }
 
 } 
