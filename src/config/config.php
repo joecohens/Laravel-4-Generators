@@ -13,7 +13,7 @@ return [
     'scaffold_model_template_path' => 'vendor/way/generators/src/Way/Generators/templates/scaffolding/model.txt',
 
     'controller_template_path' => 'vendor/way/generators/src/Way/Generators/templates/controller.txt',
-    'controller_test_template_path' => 'workbench/way/generators/src/Way/Generators/templates/tests/controller.txt',
+    'controller_test_template_path' => 'vendor/way/generators/src/Way/Generators/templates/tests/controller.txt',
 
     'scaffold_controller_template_path' => 'vendor/way/generators/src/Way/Generators/templates/scaffolding/controller.txt',
 

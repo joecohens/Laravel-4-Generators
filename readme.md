@@ -7,6 +7,7 @@ This Laravel 4 package provides a variety of generators to speed up your develop
 - `generate:model`
 - `generate:view`
 - `generate:controller`
+- `generate:controller-test`
 - `generate:seed`
 - `generate:migration`
 - `generate:pivot`
@@ -371,6 +372,7 @@ The `generate:resource` command will do a number of things for you:
 - Generate a model
 - Generate index, show, create, and edit views
 - Generate a controller
+- Generate a controller test
 - Generate a migration with schema
 - Generate a table seeder
 - Migrate the database
@@ -389,6 +391,7 @@ If you say yes to each confirmation, this single command will give you boilerpla
 
 - app/models/Post.php
 - app/controllers/PostsController.php
+- app/tests/controllers/PostsControllerTest.php
 - app/database/migrations/timestamp-create_posts_table.php (including the schema)
 - app/database/seeds/PostsTableSeeder.php
 
@@ -544,6 +547,7 @@ return [
     'scaffold_model_template_path' => '/Users/jeffreyway/Desktop/generators-testing/app/templates/scaffolding/model.txt',
 
     'controller_template_path' => '/Users/jeffreyway/Desktop/generators-testing/app/templates/controller.txt',
+    'controller_test_template_path' => '/Users/jeffreyway/Desktop/generators-testing/app/templates/tests/controller.txt',
 
     'scaffold_controller_template_path' => '/Users/jeffreyway/Desktop/generators-testing/app/templates/scaffolding/controller.txt',
 
@@ -563,6 +567,7 @@ return [
     'model_target_path'   => app_path('models'),
 
     'controller_target_path'   => app_path('controllers'),
+    'controller_test_target_path'   => app_path('tests/controllers'),
 
     'migration_target_path'   => app_path('database/migrations'),
 

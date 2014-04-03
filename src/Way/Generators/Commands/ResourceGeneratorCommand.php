@@ -32,6 +32,7 @@ class ResourceGeneratorCommand extends Command {
         $this->callModel($resource);
         $this->callView($resource);
         $this->callController($resource);
+        $this->callControllerTest($resource);
         $this->callMigration($resource);
         $this->callSeeder($resource);
         $this->callMigrate();
@@ -137,6 +138,21 @@ class ResourceGeneratorCommand extends Command {
         if ($this->confirm("Do you want me to create a $controllerName controller? [yes|no]"))
         {
             $this->call('generate:controller', compact('controllerName'));
+        }
+    }
+
+    /**
+     * Call controller generator if user confirms
+     *
+     * @param $resource
+     */
+    protected function callControllerTest($resource)
+    {
+        $controllerName = $this->getControllerName($resource);
+
+        if ($this->confirm("Do you want me to create a {$controllerName}Test test? [yes|no]"))
+        {
+            $this->call('generate:controller-test', compact('controllerName'));
         }
     }
 
